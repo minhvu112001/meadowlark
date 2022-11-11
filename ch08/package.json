@@ -1,5 +1,5 @@
 {
-  "name": "ch07",
+  "name": "ch08",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,13 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "jest": "^29.3.1",
-    "portfinder": "^1.0.32",
-    "puppeteer": "^19.2.2"
-  },
+  
   "dependencies": {
-    "eslint": "^8.27.0"
-    ,
+    "body-parser": "^1.20.1",
+    "eslint": "^8.27.0",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "multiparty": "^4.2.3",
     "save-dev": "^0.0.1-security"
   }
 }
