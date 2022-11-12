@@ -6,7 +6,7 @@ const catNames = require('cat-names')
 const app = express()
 
 // the following is needed to use views
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }))
+app.engine('handlebars', expressHandlebars.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 // the following is needed for cookie support
