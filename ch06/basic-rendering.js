@@ -3,7 +3,7 @@ const expressHandlebars = require('express-handlebars')
 const app = express()
 
 // the following is needed to use views
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }))
+app.engine('handlebars', expressHandlebars.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 // see the views/about.hbs file for the contents of this view

@@ -3,23 +3,23 @@ const expressHandlebars = require('express-handlebars')
 const app = express()
 
 // the following is needed to use views
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }))
+app.engine('handlebars', expressHandlebars.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  res.render('09-home')
+  res.render('home')
 })
 
 app.get('/page1', (req, res) => {
-  res.render('09-page', { page: 1 })
+  res.render('page', { page: 1 })
 })
 
 app.get('/page2', (req, res) => {
-  res.render('09-page', { page: 2 })
+  res.render('page', { page: 2 })
 })
 
 app.get('/page3', (req, res) => {
-  res.render('09-page', { page: 3 })
+  res.render('page', { page: 3 })
 })
 
 // this is the last handler in the chain...if no other routes match,
