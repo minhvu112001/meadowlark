@@ -1,62 +1,54 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-const expressSession = require('express-session')
-const DateHoliday = require('./lib/middleware/date-holidays')
-const handlers = require('./lib/handlers')
-const weatherMiddlware = require('./lib/middleware/weather')
-const flashMiddleware = require('./lib/middleware/flash')
-const credentials = require('./credentials')
+
+const fortune = require('./lib/tet.js')
+
+const tets = require('./lib/tet.js')
+const catNames = require('cat-names')
+
+
+const christmass = require('./lib/christmas.js')
+const path = require('path');
 const app = express()
 
 // configure Handlebars view engine
 app.engine('handlebars', expressHandlebars.engine({
   defaultLayout: 'main',
-  helpers: {
-    section: function(name, options) {
-      if(!this._sections) this._sections = {}
-      this._sections[name] = options.fn(this)
-      return null
-    },
-  },
 }))
 app.set('view engine', 'handlebars')
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-
-app.use(cookieParser(credentials.cookieSecret))
-app.use(expressSession({
-  resave: false,
-  saveUninitialized: false,
-  secret: credentials.cookieSecret,
-}))
 
 const port = process.env.PORT || 3000
 
 app.use(express.static(__dirname + '/public'))
 
-app.use(weatherMiddlware)
-app.use(flashMiddleware)
-app.use(DateHoliday)
+app.get('/', (req, res) => res.render('home'))
 
-app.get('/', handlers.home)
+app.get('/tet', (req, res) => {
+  res.render('tet', { tets: tets.gettetFortune() })
+})
 
-// handlers for browser-based form submission
-app.get('/newsletter-signup', handlers.newsletterSignup)
-app.post('/newsletter-signup/process', handlers.newsletterSignupProcess)
-app.get('/newsletter-signup/thank-you', handlers.newsletterSignupThankYou)
-app.get('/newsletter-archive', handlers.newsletterSignupThankYou)
+app.use("/img", express.static(path.join(__dirname, "/public/img")));
 
-app.use(handlers.notFound)
-app.use(handlers.serverError)
 
-if(require.main === module) {
-  app.listen(port, () => {
-    console.log( `Express started on http://localhost:${port}` +
-      '; press Ctrl-C to terminate.' )
-  })
-} else {
-  module.exports = app
-}
+app.get('/christmas', (req, res) => {
+  res.render('christmas', { christmass: christmass.getchristmasFortune() })
+})
+
+
+// custom 404 page
+app.use((req, res) => {
+  res.status(404)
+  res.render('404')
+})
+
+// custom 500 page
+app.use((err, req, res, next) => {
+  console.error(err.message)
+  res.status(500)
+  res.render('500')
+})
+
+app.listen(port, () => {
+  console.log( `Express started on http://localhost:${port}` +
+    '; press Ctrl-C to terminate.' )
+})
