@@ -5,7 +5,7 @@ const fortune = require('./lib/fortune.js')
 
 const app = express()
 
-app.engine('handlebars', expressHandlebars({
+app.engine('handlebars', expressHandlebars.engine({
     defaultLayout: 'main',
   }))
   app.set('view engine', 'handlebars')

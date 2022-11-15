@@ -1,0 +1,72 @@
+{
+  
+  
+  "name": "date-holidays",
+  
+  
+  "version": "1.0.0",
+  
+  
+  "main": "api-examples.js",
+  
+  
+  "description": "",
+  
+  
+  "scripts": {
+  
+  
+    
+  
+  "test": "echo \"Error: no test specified\" && exit 1"
+  
+  
+  },
+  
+  
+  "author": "",
+  
+  
+  "license": "ISC",
+  
+  
+  "dependencies": {
+  
+  
+    
+  
+  "browserify": "^17.0.0",
+  
+  
+    
+  
+  "cookie-parser": "^1.4.6",
+  
+  
+    
+  
+  "date-holidays-ical": "^2.0.1",
+  
+  
+    
+  
+  "date-holidays-parser": "^3.4.1",
+  
+  
+    
+  
+  "express": "^4.18.2",
+  
+  
+    
+  
+  "express-handlebars": "^6.0.6",
+  
+  
+    
+  
+  "express-session": "^1.17.3"
+  
+  
+  }
+}
