@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const multiparty = require('multiparty')
 
 const handlers = require('./lib/handlers')
-const weatherMiddlware = require('./lib/middleware/flash')
+const flashMiddlware = require('./lib/middleware/flash')
 
 const app = express()
 
@@ -24,11 +24,11 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 app.use(express.static(__dirname + '/public'))
 
-app.use(weatherMiddlware)
+
 
 app.get('/', handlers.home)
 
