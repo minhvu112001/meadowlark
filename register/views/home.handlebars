@@ -1,10 +1,109 @@
-<h2>Welcome</h2>
+<style>
+    *{
+        margin: 0;
+    }
+    .banner{
+        margin-top: 0 auto;
+    }
+    .banner img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -9999;
+    }
+    body{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-image: url("/img/food.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: consolas;
+    font-weight: bold;
+}
+   a{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: tomato;
+    text-decoration: none;
+    font-size: 24px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+a:hover{
+    color: #255784;
+    background: tomato;
+    border-radius: 3px;
+    transition-delay: 1s;
+    box-shadow: 0 0 10px tomato,
+                0 0 40px tomato,
+                0 0 80px tomato;
+}
+a span{
+    position: absolute;
+    display: block;
+}
+a span:nth-child(1){
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, tomato);
+    top: 0;
+    left: -100%;
+}
+a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+a span:nth-child(2){
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, tomato);
+    top: -100%;
+    right: 0;
+}
+a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+a span:nth-child(3){
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, tomato);
+    bottom: 0;
+    right: -100%;
+}
+a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+a span:nth-child(4){
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, tomato);
+    left: 0;
+    bottom: -100%;
+}
+a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+</style>
 
-<p>Wecome to KB Restaurant!  Please sign up to our newsletter using either:</p>
-<ul>
-  <li><a href="/newsletter-signup">Old-school form submission</a>.</li>
-  <li><a href="/newsletter">Async form submission (recommended)</a>.</li>
-</ul>
+ <body>
+    
+         <a href="/form">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Registration 
+         </a>
 
-
-
+</body>

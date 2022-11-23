@@ -1,0 +1,13 @@
+<div>
+    <h3>Thank you for your registration, {{name}}!</h3>
+    <p>you will be redirected to the Home Page after 5 seconds...</p>
+    <hr>
+    <p class="lead">
+        <a class="btn btn-primary" href="/" role="button">Continue to homepage immediately</a>
+    </p>
+</div>
+<script>
+    setTimeout(function () {
+        window.location.href = '/';
+    }, 5000);
+</script>

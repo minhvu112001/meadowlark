@@ -1,0 +1,92 @@
+<style>
+    *{
+        margin: 0;
+    }
+    .registerform{
+        display: flex;
+        width: 50%;
+        position: absolute;
+        top: 10%;
+        left: 25%;
+        padding: 4em;
+        background-color: rgb(182, 175, 175);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    .container {
+        display: flex;
+    }
+    #column {
+        flex: 50%;
+    }
+    .inputGroup{
+        margin-top: 1.6em;
+        display: flex;
+        flex-direction: column;
+    }
+    .borderBottom{
+        border: none;
+        border-bottom: 1px solid black;
+        margin-bottom: 2em;
+    }
+    .btnSubmit{
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(19, 75, 160);
+        width: 100%;
+        height: 40%;
+        color: white;
+    }
+    #background{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    a{
+        
+        text-decoration: none;
+        color: white;
+    }
+    .imagess {
+        width: 40%;
+        margin: 40px;
+    }
+</style>
+
+<div class="container">
+<div class="registerform">
+    <div id="imagess">
+        <img src="/img/banhmi.jpg" alt="image" width="300px">
+    </div>
+    <div>
+    <h3>Registration Form</h3>
+    <div class="inputGroup">
+        <form action="./thank-you" method="post">
+        <input name="name" class="borderBottom" type="text" placeholder="Name">
+        <div>
+        <input name="birthdate" class="borderBottom" type="date" placeholder="Birthdate">
+        <div>
+        <select name="gender" class="borderBottom">
+            <option>Gender</option>
+            <option value="male" name="male">Male</option>
+            <option value="female" name="female">Female</option>
+        </select>
+        </div>
+        </div>
+        <select name="classname" class="borderBottom">
+            <option>Class</option>
+            <option>T2109M</option>
+            <option>T2108M</option>
+        </select>
+        <input name="registrationcode" class="borderBottom" type="text" placeholder="Registration Code">
+        <div>
+        <button class="btnSubmit" type="submit">Submit</button>
+        </div>
+        </form>
+    </div>
+    </div>
+</div>   
+</div>
+
+
