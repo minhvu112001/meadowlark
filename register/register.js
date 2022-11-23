@@ -2,20 +2,21 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const app = express();
 var bodyParser = require('body-parser')
-var connect = require("connect");
 
-app.use(express.static(__dirname + '/public'));
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.engine(
-    'handlebars',
-    expressHandlebars.engine({
-        defaultLayout: 'main',
-    })
-);
+app.engine('handlebars', expressHandlebars.engine({
+  defaultLayout: 'main',
+}))
 
 app.set('view engine', 'handlebars');
+
+const port = process.env.PORT || 3000
+
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => res.render('home'));
 
@@ -33,6 +34,7 @@ app.post('/thank-you', function(req, res, next) {
 });
 
 
-app.listen(3000, () => {
-  console.log('Listening on http://localhost:3000');
+app.listen(port, () => {
+  console.log( `Express started on http://localhost:${port}` +
+    '; press Ctrl-C to terminate.' )
 })
